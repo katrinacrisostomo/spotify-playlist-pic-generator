@@ -6,12 +6,13 @@
     <meta text="utf-8">
     <link href="assets/css/index.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <script src="assets/js/spotify-api.js"></script>
   </head>
   <body>
     <div class="main-content">
       <h1>Generate a picture for your Spotify playlist</h1>
       <p>Paste your Spotify playlist link below</p>
-      <form>
+      <form onsubmit="generatePlaylistCover(event)">
         <input type="text" />
         <input type="submit" />
       </form>
