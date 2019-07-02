@@ -43,7 +43,7 @@ function generatePlaylistCover(e) {
     redirect_uri = "http://localhost:8000";
   }
 
-  authUrl = addQueryParams(`https://accounts.spotify.com/authorize`, queryParams={
+  authUrl = addQueryParams("https://accounts.spotify.com/authorize", queryParams={
     client_id: CLIENT_ID,
     response_type: "token",
     redirect_uri: redirect_uri,
@@ -51,7 +51,7 @@ function generatePlaylistCover(e) {
 
   // Do the authorization in a new window so that it's less disruptive
   // The window should automatically close after the user authorizes
-  var spotifyAuthWindow = window.open(
+  window.open(
     authUrl,
     "Login with Spotify",
     "width=800,height=600",
