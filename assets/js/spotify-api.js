@@ -27,13 +27,18 @@ function addQueryParams(url, queryParams) {
   return url + queryString;
 }
 
-function generatePlaylistCover(e) {
+function generatePlaylistCover(accessToken) {
+  // TODO: start calling the Spotify API with the access token
+  console.log("Got the access token");
+}
+
+function submitPlaylistUrl(e) {
   e.preventDefault();
 
   // If we already have the authorization token, don't reauthenticate
   const accessToken = localStorage.getItem('spotify-access-token');
   if (accessToken) {
-    // TODO: start calling the Spotify API with the access token
+    generatePlaylistCover(accessToken);
     return;
   }
 
@@ -59,8 +64,7 @@ function generatePlaylistCover(e) {
 
 function onAuthorizationSuccess(accessToken, error) {
   if (accessToken) {
-    // TODO: start calling the Spotify API with the access token
-    console.log("Got the access token");
+    generatePlaylistCover(accessToken);
   } else if (error) {
     // TODO: display error message on the webpage
     console.log("Failed to authorize:", error);
